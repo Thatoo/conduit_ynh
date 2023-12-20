@@ -14,6 +14,13 @@ services = ["__APP__"]
         no = "false"
         bind = "allow_registration:__INSTALL_DIR__/conduit.toml"
 
+        [install.registration_token]
+        help.en = "This password will allow you to control the creation of users. It will allow you to protect your server and the federation from spammer. The first user created became admin on this server and can create new users within the admin room."
+        help.fr = "Ce mot de passe permet de contrôler la création d'utilisateurs. Il permet de protéger votre serveur et la fédération contre les spammeurs. Le premier utilisateur créé est devenu l'administrateur du serveur et peut créer de nouveaux utilisateurs dans la salle d'administration."
+        type = "password"
+        bind = "registration_token:__INSTALL_DIR__/conduit.toml"
+        visible = "! registration"
+
         [main.registration.federation]
         ask = "Allow Federation"
         type = "boolean"
