@@ -53,6 +53,12 @@ ram.runtime = "50M"
     help.en = "If no, accounts should be registered by an admin after defining a secret. If yes, to protect your server and the federation from spammer, federation will be deactived by default. You must Activate CAPTCHA verification before federation reactivation. See Config Panel for instructions"
     help.fr = "Si non, les comptes seront créés par un admin après avoir défini un secret. Si oui, la fédération sera désactivée pour protéger la fédération et vous des spammeurs. Activez la vérification par CAPTCHA avant de réactiver la fédération ! Voir les instructions dans le Config Panel"
     default = false
+
+    [install.registration_token]
+    help.en = "This password will allow you to control the creation of users. It will allow you to protect your server and the federation from spammer. The first user created becomes admin and can create new users within the admin room. You can change this password in Config Panel and you can disable it and enable free registration in Config Panel too."
+    help.fr = "Ce mot de passe vous permet de contrôler la création d'utilisateurs. Il permet de protéger votre serveur et la fédération contre les spammeurs. Le premier utilisateur créé devient administrateur et peut créer de nouveaux utilisateurs dans la salle d'administration. Vous pouvez modifier ce mot de passe dans le panneau de configuration ainsi que le désactiver afin d'activer l'inscription ouverte dans le panneau de configuration."
+    type = "password"
+    visible = "! registration"
     
 [resources]
 
