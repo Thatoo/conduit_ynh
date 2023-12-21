@@ -33,6 +33,12 @@ ram.runtime = "50M"
     [install.domain]
     type = "domain"
 
+    [install.init_main_permission]
+    type = "group"
+    default = "all_users"
+    help.en = "To protect your server from spammer you should let the defaault choice, all_users. In config Panel, if you enable federation it will change automatically to visitors."
+    help.fr = "Pour protéger votre serveur des spammeurs, vous devriez laisser le choix par défaut, all_users. Dans le panneau de configuration, si vous activez la fédération, ce paramètre passera automatiquement à visiteurs."
+    
     [install.server_name]
     ask.en = "Select the display name for your Conduit server"
     ask.fr = "Sélectionnez le nom d'affichage pour votre serveur Conduit"
@@ -63,8 +69,6 @@ ram.runtime = "50M"
         armhf.sha256 = "595534a8eb19496f7ac39130e62a29645fc04b001faad72032144ab97467d394"
 
     [resources.system_user]
-    type = "group"
-    default = "all_users"
 
     [resources.install_dir]
 
