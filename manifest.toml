@@ -36,8 +36,8 @@ ram.runtime = "50M"
     [install.init_main_permission]
     type = "group"
     default = "all_users"
-    help.en = "To protect your server from spammer you should let the defaault choice, all_users. In config Panel, if you enable federation it will change automatically to visitors."
-    help.fr = "Pour protéger votre serveur des spammeurs, vous devriez laisser le choix par défaut, all_users. Dans le panneau de configuration, si vous activez la fédération, ce paramètre passera automatiquement à visiteurs."
+    help.en = "To protect your server from spammer you should let the defaault choice, All Users. In config Panel, if you enable federation it will change automatically to Visitors."
+    help.fr = "Pour protéger votre serveur des spammeurs, vous devriez laisser le choix par défaut, Tous les utilisateurs de Yunohost. Dans le panneau de configuration, si vous activez la fédération, ce paramètre passera automatiquement à Visiteurs."
     
     [install.server_name]
     ask.en = "Select the display name for your Conduit server"
