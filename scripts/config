@@ -19,15 +19,7 @@ install_dir=$(ynh_app_setting_get --app=$app --key=install_dir)
 #=================================================
 # SPECIFIC GETTERS FOR TOML SHORT KEY
 #=================================================
-get__allow_registration() {
-        allow_registration=$(ynh_app_setting_get --app $app --key allow_registration)
-        echo "${allow_registration}"
-}
 
-get__registration_token() {
-	registration_token=$(ynh_app_setting_get --app $app --key registration_token)
-	echo "${registration_token}"
-}
 #=================================================
 # SPECIFIC VALIDATORS FOR TOML SHORT KEYS
 #=================================================
@@ -36,13 +28,15 @@ get__registration_token() {
 # SPECIFIC SETTERS FOR TOML SHORT KEYS
 #=================================================
 
-set__allow_registration() {
-        ynh_app_setting_set --app=$app --key=allow_registration --value="${allow_registration}"
-        if [ "$allow_registration" = "true" ] ; then
-            sed -i "s|registration_token=|#registration_token=|g" "$install_dir/conduit.toml"
-        elif [ "$allow_registration" = "false" ] ; then
-            sed -i "s|#registration_token=|registration_token=|g" "$install_dir/conduit.toml"
+set__allow_federation() {
+        if [ "$allow_federation" = "true" ] ; then
+        sed -i "s|allow_federation = false|allow_federation = true|g" "$install_dir/conduit.toml"
+        yunohost user permission add conduit visitors
+        elif [ "$allow_federation" = "false" ] ; then
+        sed -i "s|allow_federation = true|allow_federation = false|g" "$install_dir/conduit.toml"
+        yunohost user permission remove conduit visitors
         fi
+        ynh_app_setting_set --app=$app --key=allow_federation --value="${allow_federation}"
 }
 
 #=================================================
