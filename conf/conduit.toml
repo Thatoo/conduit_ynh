@@ -29,11 +29,11 @@ port = __PORT__
 max_request_size = 20_000_000 # in bytes
 
 # Enables registration. If set to false, users should register on this server with the help of a token.
-allow_registration = __REGISTRATION__
+allow_registration = __ALLOW_REGISTRATION__
 registration_token = "__REGISTRATION_TOKEN__"
 
 # Enables registration.
-allow_federation = __FEDERATION__
+allow_federation = __ALLOW_FEDERATION__
 allow_check_for_updates = true
 
 # Server to get public keys from. You probably shouldn't change this
