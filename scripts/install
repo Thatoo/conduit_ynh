@@ -13,10 +13,10 @@ source /usr/share/yunohost/helpers
 # SET AND STORE CONSTANTS
 #=================================================
 
-registration="false"
-federation="false"
-ynh_app_setting_set --app=$app --key=registration --value=$registration
-ynh_app_setting_set --app=$app --key=federation --value=$federation
+allow_registration="false"
+allow_federation="false"
+ynh_app_setting_set --app=$app --key=allow_registration --value=$allow_registration
+ynh_app_setting_set --app=$app --key=allow_federation --value=$allow_federation
 
 #=================================================
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
