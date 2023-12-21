@@ -32,4 +32,3 @@ services = ["__APP__"]
         no = "false"
         help.en = "Communicate with other homeservers of the Matrix Federation. It is recommended to deactivate open registration and limit registration with password."
         help.fr = "Permet à votre serveur de communiquer avec les autres serveurs Matrix. Il est recommandé, pour éviter le SPAM, de désactiver l'inscription ouverte et préférer l'inscription par mot de passe."
-        bind = ":__INSTALL_DIR__/conduit.toml"
