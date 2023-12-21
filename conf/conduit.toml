@@ -28,10 +28,11 @@ port = __PORT__
 # Max size for uploads
 max_request_size = 20_000_000 # in bytes
 
-# Enables registration. If set to false, no users can register on this server.
+# Enables registration. If set to false, users should register on this server with the help of a token.
 allow_registration = __REGISTRATION__
-registration_token="__REGISTRATION_TOKEN__"
+registration_token = "__REGISTRATION_TOKEN__"
 
+# Enables registration.
 allow_federation = __FEDERATION__
 allow_check_for_updates = true
 
