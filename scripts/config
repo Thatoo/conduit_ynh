@@ -70,7 +70,8 @@ ynh_app_config_apply() {
 
         if [ ! "$allow_registration" == "" ]
         then
-                sed -i -r "s|registration_token = \"[A-Za-z]+\"\n|registration_token = \"${allow_registration}\"\n|g" "$install_dir/conduit.toml"
+                sed -i -r "s|registration_token = \"[A-Za-z]+\"\n|registration_token = \"${registration_token}\"\n|g" "$install_dir/conduit.toml"
+                ynh_app_setting_set --app=$app --key=registration_token --value="${registration_token}"
         fi
 }
 
