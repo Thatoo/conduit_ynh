@@ -33,12 +33,6 @@ ram.runtime = "50M"
     [install.domain]
     type = "domain"
 
-    [install.init_main_permission]
-    type = "group"
-    default = "visitors"
-    help.en = "If you want to be able to federate with other servers, you should let the default choice, visitors"
-    help.fr = "Si vous souhaitez pouvoir fédérer votre serveur avec d'autres, vous devez laisser le choix par défaut, visiteurs"
-
     [install.server_name]
     ask.en = "Select the display name for your Conduit server"
     ask.fr = "Sélectionnez le nom d'affichage pour votre serveur Conduit"
@@ -69,6 +63,8 @@ ram.runtime = "50M"
         armhf.sha256 = "595534a8eb19496f7ac39130e62a29645fc04b001faad72032144ab97467d394"
 
     [resources.system_user]
+    type = "group"
+    default = "all_users"
 
     [resources.install_dir]
 
