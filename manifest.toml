@@ -46,20 +46,13 @@ ram.runtime = "50M"
     help.fr = "Si vous choisissez domain.tld, vos identifiants Matrix ressembleront à @utilisateur:domain.tld plutôt que @utilisateur:conduit.domain.tld"
     type = "domain"
 
-    [install.registration]
-    ask.en = "Should the server allow any visitor to register as a user?"
-    ask.fr = "Le serveur doit-il permettre à quiconque de s'enregistrer comme utilisateur ?"
-    type = "boolean"
-    help.en = "If no, accounts should be registered by an admin after defining a secret. If yes, to protect your server and the federation from spammer, federation will be deactived by default. You must Activate CAPTCHA verification before federation reactivation. See Config Panel for instructions"
-    help.fr = "Si non, les comptes seront créés par un admin après avoir défini un secret. Si oui, la fédération sera désactivée pour protéger la fédération et vous des spammeurs. Activez la vérification par CAPTCHA avant de réactiver la fédération ! Voir les instructions dans le Config Panel"
-    default = false
-
     [install.registration_token]
-    help.en = "This password will allow you to control the creation of users. It will allow you to protect your server and the federation from spammer. The first user created becomes admin and can create new users within the admin room. You can change this password in Config Panel and you can disable it and enable free registration in Config Panel too."
-    help.fr = "Ce mot de passe vous permet de contrôler la création d'utilisateurs. Il permet de protéger votre serveur et la fédération contre les spammeurs. Le premier utilisateur créé devient administrateur et peut créer de nouveaux utilisateurs dans la salle d'administration. Vous pouvez modifier ce mot de passe dans le panneau de configuration ainsi que le désactiver afin d'activer l'inscription ouverte dans le panneau de configuration."
+    ask.en = "Choose a password to secure user creation."
+    ask.fr = "Choisissez un mot de passe pour sécuriser la création d'utilisateur."
+    help.en = "This password will allow you to control users creation. It will allow you to protect your server and the federation from spammer. The first user created becomes admin and can create new users within the admin room. After installation, in Config Panel, you will be able to change this password, disable it and enable free registration instead and enable federation."
+    help.fr = "Ce mot de passe vous permet de contrôler la création d'utilisateurs. Il permet de protéger votre serveur et la fédération contre les spammeurs. Le premier utilisateur créé devient administrateur et peut créer de nouveaux utilisateurs dans la salle d'administration. Dans le panneau de configuration, vous pourrez modifier ce mot de passe, le désactiver afin d'activer l'inscription ouverte et la activer la fédération."
     type = "password"
-    visible = "! registration"
-    
+
 [resources]
 
     [resources.sources]
