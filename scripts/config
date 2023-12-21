@@ -15,12 +15,19 @@ ynh_abort_if_errors
 #=================================================
 
 install_dir=$(ynh_app_setting_get --app=$app --key=install_dir)
-registration=$(ynh_app_setting_get --app=$app --key=registration)
 
 #=================================================
 # SPECIFIC GETTERS FOR TOML SHORT KEY
 #=================================================
+get__allow_registration() {
+        allow_registration=$(ynh_app_setting_get --app $app --key allow_registration)
+        echo "${allow_registration}"
+}
 
+get__registration_token() {
+	registration_token=$(ynh_app_setting_get --app $app --key registration_token)
+	echo "${registration_token}"
+}
 #=================================================
 # SPECIFIC VALIDATORS FOR TOML SHORT KEYS
 #=================================================
@@ -29,11 +36,14 @@ registration=$(ynh_app_setting_get --app=$app --key=registration)
 # SPECIFIC SETTERS FOR TOML SHORT KEYS
 #=================================================
 
-if [ "$registration" = "true" ] ; then
-    sed -i "s|registration_token=|#registration_token=|g" "$install_dir/conduit.toml"
-elif [ "$registration" = "false" ] ; then
-    sed -i "s|#registration_token=|registration_token=|g" "$install_dir/conduit.toml"
-fi
+set__allow_registration() {
+        ynh_app_setting_set --app=$app --key=allow_registration --value="${allow_registration}"
+        if [ "$allow_registration" = "true" ] ; then
+            sed -i "s|registration_token=|#registration_token=|g" "$install_dir/conduit.toml"
+        elif [ "$allow_registration" = "false" ] ; then
+            sed -i "s|#registration_token=|registration_token=|g" "$install_dir/conduit.toml"
+        fi
+}
 
 #=================================================
 # GENERIC FINALIZATION
