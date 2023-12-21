@@ -10,16 +10,19 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
+# SET AND STORE CONSTANTS
+#=================================================
+
+registration="false"
+federation="false"
+ynh_app_setting_set --app=$app --key=registration --value=$registration
+ynh_app_setting_set --app=$app --key=federation --value=$federation
+
+#=================================================
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
 #=================================================
 
-federation="true"
-
-#=================================================
-# STORE SETTINGS FROM MANIFEST
-#=================================================
-
-ynh_app_setting_set --app=$app --key=federation --value=$federation
+registration_token=$registration_token
 
 #=================================================
 # APP "BUILD" (DEPLOYING SOURCES, VENV, COMPILING ETC)
