@@ -12,6 +12,8 @@ services = ["__APP__"]
         type = "boolean"
         yes = "true"
         no = "false"
+        help.en = "If no, accounts should be registered thanks to the bellow password. If yes,to protect your server and the federation from spammer, it is recommended you to deactive federation."
+        help.fr = "Si non, les comptes doivent être créé à l'aide du mot de passe ci-dessous. Si oui, il est recommandé de désactiver la fédération pour protéger votre serveur et les serveurs fédérés des spammeurs."
         bind = "allow_registration:__INSTALL_DIR__/conduit.toml"
 
         [install.registration_token]
@@ -26,5 +28,6 @@ services = ["__APP__"]
         type = "boolean"
         yes = "true"
         no = "false"
-        help = "Communicate with other homeservers of the Matrix Federation."
+        help.en = "Communicate with other homeservers of the Matrix Federation. It is recommended to deactivate open registration and limit registration with password."
+        help.fr = "Permet à votre serveur de communiquer avec les autres serveurs Matrix. Il est recommandé, pour éviter le SPAM, de désactiver l'inscription ouverte et préférer l'inscription par mot de passe."
         bind = "allow_federation:__INSTALL_DIR__/conduit.toml"
