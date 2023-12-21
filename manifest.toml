@@ -64,7 +64,6 @@ ram.runtime = "50M"
     type = "boolean"
     yes = "true"
     no = "false"
-    visible = "registration"
     
 [resources]
 
