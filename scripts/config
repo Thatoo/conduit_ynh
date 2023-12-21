@@ -20,6 +20,11 @@ install_dir=$(ynh_app_setting_get --app=$app --key=install_dir)
 # SPECIFIC GETTERS FOR TOML SHORT KEY
 #=================================================
 
+get__registration_token() {
+       registration_token=$(ynh_app_setting_get --app $app --key registration_token)
+       echo "${registration_token}"
+}
+
 #=================================================
 # SPECIFIC VALIDATORS FOR TOML SHORT KEYS
 #=================================================
@@ -27,6 +32,14 @@ install_dir=$(ynh_app_setting_get --app=$app --key=install_dir)
 #=================================================
 # SPECIFIC SETTERS FOR TOML SHORT KEYS
 #=================================================
+
+set__registration_token() {
+        if [ "$registration_token" == "" ]
+        then
+                sed -i -r "s|registration_token = \"[A-Za-z]+\"\n|registration_token = \"${registration_token}\"\n|g" "$install_dir/conduit.toml"
+                ynh_app_setting_set --app=$app --key=registration_token --value="${registration_token}"
+        fi
+}
 
 set__allow_federation() {
         if [ "$allow_federation" = "true" ] ; then
@@ -42,4 +55,24 @@ set__allow_federation() {
 #=================================================
 # GENERIC FINALIZATION
 #=================================================
+
+#ynh_app_config_validate() {
+#       _ynh_app_config_validate
+
+#       if [ "${changed[allow_registration]" == "true" ] && [ "$password" == "" ]
+#       then
+#               ynh_die --message="You need to set a password to enable registration with token"
+#       fi
+#}
+
+ynh_app_config_apply() {
+        _ynh_app_config_apply
+
+        if [ ! "$allow_registration" == "" ]
+        then
+                sed -i -r "s|registration_token = \"[A-Za-z]+\"\n|registration_token = \"${allow_registration}\"\n|g" "$install_dir/conduit.toml"
+        fi
+}
+
+
 ynh_app_config_run $1
