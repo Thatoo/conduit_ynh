@@ -7,14 +7,14 @@ services = ["__APP__"]
     [main.registration]
     name = "User registration"
 
-        [main.registration.registration]
+        [main.registration.allow_registration]
         ask = "Should registration be enabled?"
         type = "boolean"
         yes = "true"
         no = "false"
         help.en = "If no, accounts should be registered thanks to the bellow password. If yes,to protect your server and the federation from spammer, it is recommended you to deactive federation."
         help.fr = "Si non, les comptes doivent être créé à l'aide du mot de passe ci-dessous. Si oui, il est recommandé de désactiver la fédération pour protéger votre serveur et les serveurs fédérés des spammeurs."
-        bind = "allow_registration:__INSTALL_DIR__/conduit.toml"
+        bind = ":__INSTALL_DIR__/conduit.toml"
 
         [main.registration.registration_token]
         ask.en = "Choose a password to secure user creation."
@@ -22,14 +22,14 @@ services = ["__APP__"]
         help.en = "This password will allow you to control the creation of users. It will allow you to protect your server and the federation from spammer. The first user created became admin on this server and can create new users within the admin room."
         help.fr = "Ce mot de passe permet de contrôler la création d'utilisateurs. Il permet de protéger votre serveur et la fédération contre les spammeurs. Le premier utilisateur créé est devenu l'administrateur du serveur et peut créer de nouveaux utilisateurs dans la salle d'administration."
         type = "password"
-        bind = "registration_token:__INSTALL_DIR__/conduit.toml"
-        visible = "! registration"
+        bind = ":__INSTALL_DIR__/conduit.toml"
+        visible = "! allow_registration"
 
-        [main.registration.federation]
+        [main.registration.allow_federation]
         ask = "Allow Federation"
         type = "boolean"
         yes = "true"
         no = "false"
         help.en = "Communicate with other homeservers of the Matrix Federation. It is recommended to deactivate open registration and limit registration with password."
         help.fr = "Permet à votre serveur de communiquer avec les autres serveurs Matrix. Il est recommandé, pour éviter le SPAM, de désactiver l'inscription ouverte et préférer l'inscription par mot de passe."
-        bind = "allow_federation:__INSTALL_DIR__/conduit.toml"
+        bind = ":__INSTALL_DIR__/conduit.toml"
